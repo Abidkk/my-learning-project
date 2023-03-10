@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angles</title>
+    <style>
+        .main{
+            width: 100%;
+            height: 200px;
+            text-align: center;
+            background-color:gray;
+        }
+
+        .foot{
+            width: 100%;
+            height: 50px;
+            background: rgb(104, 102, 102);
+        }
+
+
+        input{
+            width: 100px;
+            height: 30px;
+            border: 3px solid black;
+            border-radius: 5px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .search{
+            font-size: 20px;
+            color: red;
+            width: 150px;
+            height: 30px;
+            background: black;
+            border-radius: 20px;
+            border: 2px solid yellow;
+        }
+
+        .result{
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-shadow: 2px 2px 2px yellowgreen;
+            background: black;
+            color: yellow;
+        }
+
+
+        .title1{
+            color :white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="head">
+                <h1 class="title1">Find Angles</h1>
+                
+                <input type="number" class="num">
+                  <br/> <br/>
+                <button class="search" onclick="call()"> Find Angles </button>
+        </div>
+        <div class="foot">
+
+            <h1 class="result">result</h1>
+
+        </div>
+    </div>
+    
+</body>
+<script>
+
+//    let res = document.getElementsByClassName('input1')[0].value;
+
+
+function call(){
+    var res = document.getElementsByClassName('num')[0].value;
+    //alert("hello")
+
+  
+
+    if(res < 90){
+        document.getElementsByClassName('result')[0].innerHTML = "Acute Angle";
+      //  alert('Acute Angle')
+    } else if (res == 90) {
+        document.getElementsByClassName('result')[0].innerHTML = "Right Angle";
+      //  alert('Right Angle')
+    } else if (res < 180 ){
+        document.getElementsByClassName('result')[0].innerHTML = "Obtuce Angle";
+      //  alert('Obtuce Angle')
+    } else if (res == 180){
+        document.getElementsByClassName('result')[0].innerHTML = 'Straight Angle';
+      //  alert('Straight Angle')
+    } else if (res > 180 && res < 360 ){
+        document.getElementsByClassName('result')[0].innerHTML = 'Reflex';
+      //  alert('Reflex Angle')
+    } else if(res == 360){
+        document.getElementsByClassName('result')[0].innerHTML = 'Circle';
+      //  alert('Circle')
+    } else{
+        document.getElementsByClassName('result')[0].innerHTML = 'Invalid Input';
+      //  alert('Invalid input')
+    }
+    
+}
+
+
+</script>
+</html>
