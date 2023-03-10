@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-Item</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      
+        .main{
+            width: 100%;
+            height: 600px;
+            background-color: blanchedalmond;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .box{
+            width: 90%;
+            height: 500px;
+            background: silver;
+            border-radius: 20px;
+            margin-top: 20px;
+            display: block;
+        
+        }
+
+ 
+        .input{
+            width: 85%;
+            height: 30px;
+            border-radius: 10px;
+            border: 1px solid grey;
+            font-size: 20px;
+            padding: 5px;
+            justify-content: center;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            display: block;
+            
+
+        }
+
+        .list{
+            list-style: none;
+        }
+
+        .list li {
+            width: 80%;
+            background: black;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+            padding-right: 40px;
+            text-align: justify;
+            margin-top: 5px;
+            user-select: none;
+            
+        }
+
+        .list li i {
+            position :absolute;
+            right: 15px;
+            top: 10px;
+            
+
+        }
+
+        .done{
+            text-decoration: line-through;
+            background-color: green !important;
+
+        }
+
+    </style>
+</head>
+<body>
+
+        <div class="main">
+            <div class="box">
+
+  
+                    <input type="text" placeholder="write some thing" class="input">
+                    <ul class="list">
+
+                    </ul>
+
+                    
+ 
+
+
+            </div>
+        </div>
+    
+</body>
+<script>
+    let item = document.querySelector('input');
+    let lst = document.querySelector('.list')
+
+    item.addEventListener(
+        'keyup',
+     function (event){
+        if(event.key == 'Enter'){
+           add(this.value)
+            this.value = ' '
+        }
+     }
+    )
+
+   function add(item){
+    let listItem = document.createElement('li');
+    listItem.innerHTML = `
+    ${item}
+    <i class="fas fa-times"> </i>
+    `;
+    listItem.addEventListener(
+        'click',
+        function(){
+            this.classList.toggle('done');
+        }
+
+    )
+
+   
+listItem.querySelector('i').addEventListener(
+    'click',
+    function(){
+        listItem.remove()
+    }
+)
+   lst.appendChild(listItem)
+   }
+
+</script>
+</html>
